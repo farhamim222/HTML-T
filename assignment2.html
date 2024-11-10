@@ -3,37 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorting Hat</title>
+    <title>Greeting Program</title>
     <script>
-        function sortStudent() {
-            // Get the student's name from the input field
-            const studentName = document.getElementById("studentName").value;
+        function greetUser() {
+            // Get the user's name from the input field
+            const userName = document.getElementById("nameInput").value;
 
-            // Generate a random number between 1 and 4
-            const randomNumber = Math.floor(Math.random() * 4) + 1;
-
-            // Determine the house based on the random number
-            let house;
-            if (randomNumber === 1) {
-                house = "Gryffindor";
-            } else if (randomNumber === 2) {
-                house = "Slytherin";
-            } else if (randomNumber === 3) {
-                house = "Hufflepuff";
-            } else {
-                house = "Ravenclaw";
-            }
-
-            // Display the result
-            document.getElementById("result").innerText = `${studentName}, you are in ${house}.`;
+            // Display the greeting
+            document.getElementById("greeting").innerText = `Hello, ${userName}!`;
         }
     </script>
 </head>
 <body>
-    <h1>Welcome to the Hogwarts Sorting Hat</h1>
-    <label for="studentName">Enter your name:</label>
-    <input type="text" id="studentName">
-    <button onclick="sortStudent()">Get Sorted</button>
-    <p id="result"></p>
+    <h1>Greeting Program</h1>
+    <label for="nameInput">Enter your name:</label>
+    <input type="text" id="nameInput">
+    <button onclick="greetUser()">Greet</button>
+    <p id="greeting"></p>
 </body>
 </html>

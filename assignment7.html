@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <script>
+        function rollDice() {
+            // Ask the user for the number of dice rolls
+            const numRolls = parseInt(prompt("Enter the number of dice rolls:"));
+
+            // Validate the input to ensure it's a positive number
+            if (isNaN(numRolls) || numRolls <= 0) {
+                document.getElementById("result").innerText = "Please enter a valid positive number.";
+                return;
+            }
+
+            let sum = 0;
+
+            // Roll the dice 'numRolls' times and calculate the sum
+            for (let i = 0; i < numRolls; i++) {
+                // Generate a random number between 1 and 6 (inclusive) for each dice roll
+                const roll = Math.floor(Math.random() * 6) + 1;
+                sum += roll;
+            }
+
+            // Display the sum of the results
+            document.getElementById("result").innerText = `The sum of ${numRolls} dice rolls is: ${sum}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Dice Roller</h1>
+    <button onclick="rollDice()">Roll Dice</button>
+    <p id="result"></p>
+</body>
+</html>

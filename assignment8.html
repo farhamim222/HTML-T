@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Years</title>
+    <script>
+        function findLeapYears() {
+            // Get the start and end year from the user
+            const startYear = parseInt(prompt("Enter the start year:"));
+            const endYear = parseInt(prompt("Enter the end year:"));
+
+            // Validate the input to ensure they are valid numbers
+            if (isNaN(startYear) || isNaN(endYear) || startYear > endYear) {
+                document.getElementById("result").innerHTML = "Please enter valid years, with start year less than or equal to end year.";
+                return;
+            }
+
+            // Initialize an empty string to hold the list items
+            let leapYearsList = "<ul>";
+
+            // Loop through the range of years and check for leap years
+            for (let year = startYear; year <= endYear; year++) {
+                // A leap year is divisible by 4, but not by 100 unless divisible by 400
+                if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                    leapYearsList += `<li>${year}</li>`;
+                }
+            }
+
+            leapYearsList += "</ul>";  // Close the unordered list
+            document.getElementById("result").innerHTML = leapYearsList;  // Display the result
+        }
+    </script>
+</head>
+<body>
+    <h1>Leap Year Finder</h1>
+    <button onclick="findLeapYears()">Find Leap Years</button>
+    <div id="result"></div>
+</body>
+</html>
